@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets\\data",
+    "\\source",
+    "\\source\\gameFolder",
+    "\\source\\gameFolder\\gameObjects",
+    "\\source\\gameFolder\\gameObjects\\userInterface",
+    "\\source\\gameFolder\\gameObjects\\userInterface\\menu",
+    "\\source\\gameFolder\\meta",
+    "\\source\\gameFolder\\meta\\data",
+    "\\source\\gameFolder\\meta\\data\\font"
+  ],
+  "SelectedNode": "\\source\\gameFolder\\meta\\state\\PlayState.hx",
+  "PreviewInSolutionExplorer": false
+}
