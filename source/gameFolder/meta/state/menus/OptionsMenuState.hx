@@ -12,6 +12,7 @@ import gameFolder.gameObjects.userInterface.menu.Checkmark;
 import gameFolder.meta.MusicBeat.MusicBeatState;
 import gameFolder.meta.data.font.Alphabet;
 import gameFolder.meta.subState.OptionsSubstate;
+import android.AndroidControlsSubState;
 
 /*
 	Here I'll set up the options menu, based on the one in week 7. It's just going to be a remake of it though, so you may notice some inconsistencies.
@@ -46,7 +47,7 @@ class OptionsMenuState extends MusicBeatState
 	override public function create():Void
 	{
 		// create option subgroups and handle options information
-		var groupBaseOptions:Array<String> = ['preferences', 'controls', 'accessibility', 'forever settings', 'exit'];
+		var groupBaseOptions:Array<String> = ['preferences', 'controls', 'accessibility', 'forever settings', 'android controls', 'exit'];
 
 		groupBase = generateGroup(groupBaseOptions);
 
@@ -107,7 +108,7 @@ class OptionsMenuState extends MusicBeatState
 		add(infoText);
 
 		#if android
-		addVirtualPad(LEFT_FULL, A_B_C);
+		addVirtualPad(LEFT_FULL, A_B);
 		#end
 
 		super.create();
@@ -165,12 +166,6 @@ class OptionsMenuState extends MusicBeatState
 			else
 				Main.switchState(new MainMenuState());
 		}
-
-		#if android
-		if (_virtualpad.buttonC.justPressed) {
-			Main.switchState(new android.AndroidControlsMenu());
-		}
-		#end
 
 		if (optionsSubgroups.get(selectedGroup)[1] != null)
 		{
@@ -332,9 +327,10 @@ class OptionsMenuState extends MusicBeatState
 				updateGroup(optionsSubgroups.get(optionsGroup.members[curSelection].text)[0],
 					optionsSubgroups.get(optionsGroup.members[curSelection].text)[1], optionsSubgroups.get(selectedGroup)[0],
 					optionsSubgroups.get(selectedGroup)[1]);
+			case 'android controls':
+			  Main.switchState(new AndroidControlsSubState());
 			case 'exit':
 				Main.switchState(new MainMenuState());
-
 			default:
 				// LMAO THIS IS HUGE
 				Init.gameSettings.get(optionsGroup.members[curSelection].text)[0] = !Init.gameSettings.get(optionsGroup.members[curSelection].text)[0];
