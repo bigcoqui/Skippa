@@ -227,8 +227,6 @@ class ChartingState extends MusicBeatState
 				songMusic.pause();
 			if (vocals.playing)
 				vocals.pause();
-
-			openSubState(new PreferenceSubstate(camHUD));
 		}
 	}
 
